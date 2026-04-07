@@ -17,7 +17,7 @@ export async function initProfilePage() {
         const profile = profiles[0];
 
         boxes[0].innerHTML = `
-            <h3>Пользователь</h3>
+            <h2>Пользователь</h2>
             <p>Имя: ${user.name}</p>
             <p>Email: ${user.email}</p>
             <p>Статус: Студент</p>
@@ -25,13 +25,13 @@ export async function initProfilePage() {
 
         if (profile?.courses) {
             boxes[1].innerHTML = `
-                <h3>Мои курсы</h3>
+                <h2>Мои курсы</h2>
                 <div class="cards">
                     ${profile.courses.map(course => `
-                        <div class="card">
+                        <article class="card">
                             <h3>${course.title}</h3>
                             <p>Курс доступен в личном кабинете.</p>
-                        </div>
+                        </article>
                     `).join('')}
                 </div>
             `;
@@ -39,10 +39,17 @@ export async function initProfilePage() {
 
         if (profile?.progress) {
             boxes[2].innerHTML = `
-                <h3>Прогресс</h3>
+                <h2>Прогресс</h2>
                 ${profile.progress.map(item => `
-                    <p style="margin-top: 15px;">${item.courseTitle}</p>
-                    <div class="progress-bar">
+                    <p class="progress-label">${item.courseTitle}</p>
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-label="Прогресс по курсу ${item.courseTitle}"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="${item.value}"
+                    >
                         <div class="progress" style="width: ${item.value}%;">${item.value}%</div>
                     </div>
                 `).join('')}

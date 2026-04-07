@@ -6,11 +6,10 @@ export function initLoginPage() {
 
     const emailInput = form.querySelector('input[type="email"]');
     const passwordInput = form.querySelector('input[type="password"]');
-    const submitButton = form.querySelector('.btn');
 
-    if (!emailInput || !passwordInput || !submitButton) return;
+    if (!emailInput || !passwordInput) return;
 
-    submitButton.addEventListener('click', async (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const email = emailInput.value.trim();

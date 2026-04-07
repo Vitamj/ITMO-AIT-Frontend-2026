@@ -7,11 +7,9 @@ export function initRegisterPage() {
     const textInput = form.querySelector('input[type="text"]');
     const emailInput = form.querySelector('input[type="email"]');
     const passwordInputs = form.querySelectorAll('input[type="password"]');
-    const submitButton = form.querySelector('.btn');
+    if (!textInput || !emailInput || passwordInputs.length < 2) return;
 
-    if (!textInput || !emailInput || passwordInputs.length < 2 || !submitButton) return;
-
-    submitButton.addEventListener('click', async (e) => {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         const name = textInput.value.trim();

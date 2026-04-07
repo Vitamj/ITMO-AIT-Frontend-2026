@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Страница входа на платформу онлайн-курсов">
     <title>Вход</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
     <header>
         <div class="container">
-            <div class="logo">Online Courses</div>
-            <nav>
+            <a class="logo" href="index.html">Online Courses</a>
+            <nav aria-label="Основная навигация">
                 <a href="index.html">Главная</a>
                 <a href="courses.html">Курсы</a>
-                <a href="login.html">Вход</a>
+                <a href="login.html" aria-current="page">Вход</a>
                 <a href="register.html">Регистрация</a>
             </nav>
+            <button
+                type="button"
+                class="theme-toggle"
+                id="theme-toggle"
+                aria-pressed="false"
+                aria-label="Переключить цветовую тему"
+            >
+                <svg class="button-icon" aria-hidden="true">
+                    <use href="assets/icons/sprite.svg#icon-theme"></use>
+                </svg>
+                <span>Сменить тему</span>
+            </button>
         </div>
     </header>
 
-    <section class="form-page">
-        <div class="form-box">
-            <h2>Вход</h2>
-            <form>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" placeholder="Введите email">
-                </div>
+    <main id="main-content">
+        <section class="form-page">
+            <div class="form-box">
+                <h1>Вход</h1>
+                <form aria-label="Форма входа">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Введите email" autocomplete="email" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="password">Пароль</label>
-                    <input type="password" id="password" placeholder="Введите пароль">
-                </div>
+                    <div class="form-group">
+                        <label for="password">Пароль</label>
+                        <input type="password" id="password" name="password" placeholder="Введите пароль" autocomplete="current-password" required>
+                    </div>
 
-                <button type="button" class="btn" style="width: 100%; text-align: center; border: none; cursor: pointer;">Войти</button>
-                    <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
-                </div>
-            </form>
-        </div>
-    </section>
+                    <button type="submit" class="btn btn-full">Войти</button>
+
+                    <div class="form-link">
+                        <p>Нет аккаунта? <a href="register.html">Зарегистрироваться</a></p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
